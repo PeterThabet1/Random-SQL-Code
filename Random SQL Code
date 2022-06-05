@@ -91,3 +91,49 @@ right join student_courses
 on student.Student_ID = student_courses.Student_ID;
 
 
+
+
+
+create view Grades as
+
+select f.Student_ID, s.Course_ID, s.Grade
+
+from student f, student_courses s
+
+where f.Student_ID = s.Student_ID
+
+order by f.Student_ID;
+
+
+
+
+
+create view College as
+
+select distinct f.Student_ID, f.Dept_Name, s.Section, s.Year
+
+from student f, student_courses s
+
+where f.Student_ID = s.Student_ID
+
+order by f.Student_ID;
+
+
+
+
+alter view College as
+
+select distinct f.Student_ID, f.Dept_Name, s.Year
+
+from student f, student_courses s
+
+where f.Student_ID = s.Student_ID
+
+order by f.Student_ID;
+
+
+
+drop view grades;
+
+
+
